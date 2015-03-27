@@ -1,0 +1,47 @@
+<div class="panel panel-body">
+    <div class="panel-heading">
+        <h3>
+            Sign Up
+        </h3>
+    </div>
+
+    <div class="panel-body">
+        <form method="post" action="/signup" enctype="application/x-www-form-urlencoded">
+
+            <div class="form-group">
+                {{#if error}}
+                    <div class="alert alert-danger">{{error}}</div>
+                {{/if}}
+            </div>
+
+
+            <div class="form-group">
+                <label for="username" class="control-label">
+                    username
+                </label>    
+                <textarea name="username" class="form-control" rows="2"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="email" class="control-label">
+                    email
+                </label>    
+                <textarea name="email" class="form-control" rows="2"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="password" class="control-label">
+                    password
+                </label>    
+                <textarea name="password" class="form-control" rows="2"></textarea>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-sussess" id="login-btn" >
+                    Sign Up
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>

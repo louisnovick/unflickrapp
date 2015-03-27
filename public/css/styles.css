@@ -1,0 +1,34 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:700,600,400|Roboto+Slab:300,400);
+
+
+footer {
+/*   position: absolute; */
+  bottom: 0;
+/*   right: 0; */
+  width: 100%;
+  height: 70px;
+  background-color: rgba(0,0,0,0.8);
+}
+
+.legal {
+  padding: 20px 0;
+  color: #e3e3e3;
+}
+
+
+
+body {
+  background: linear-gradient(90deg, #2662c1 0%, #558d9e 100%); 
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Roboto Slab', serif;
+}
+
+.new-img {
+    padding-bottom: 1em;
+}

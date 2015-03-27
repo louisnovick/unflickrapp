@@ -1,0 +1,57 @@
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3>
+            Upload an image
+          </h3>
+        </div>
+        <div class="panel-body">
+          {{#if userName}}
+            <div class="">
+              <p class="navbar-text">
+                <strong>Hi,</strong> {{userName}}, &nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="/signout">Log Out</a>
+              </p>
+            </div>
+          <form method="post" action="/images" enctype="multipart/form-data">
+            <div class="form-group">
+              <label for="file" class="control-label">
+                Browse
+              </label>
+              <input type="file" name="file" class="form-control" />
+            </div>
+            <div class="form-group">
+              <label for="title" class="control-label">
+                Title
+              </label>
+              <input type="text" name="title" class="form-control" placeholder="title" />
+            </div>
+            <div class="form-group">
+              <label for="description" class="control-label">
+                Description
+              </label>
+              <textarea name="description" rows="9" class="form-control" placeholder="how awesome is this picture?"></textarea>
+            </div>
+            <div class="form-group">
+              <button type="submit" id="login-btn" class="btn btn-success"><i class="glyphicon glyphicon-import"></i> Upload Image</button>
+            </div>
+          </form>
+          {{else}}
+            <a href="/signup">Sign Up</a>
+            <a href="/signin">Sign In</a>
+          {{/if}}
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3>Newest Images</h3>
+        </div>
+        <div class="panel-body">
+          {{#each images}}
+            <div class="col-sm-6 center-block new-img">
+              <a href="/images/{{ uniqueID }}">
+                <img src="/public/upload/{{filename}}" alt="{{title}}" class="img-thumbnail" />
+              </a>
+            </div>
+          {{/each}}
+        </div>
+      </div>
