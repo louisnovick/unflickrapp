@@ -1,0 +1,233 @@
+//fonts
+$main-font: 'Raleway', sans-serif;
+$secondary-font: 'Oxygen Mono', 'monospace';
+
+//colors
+$purple: #5C4B51;
+$orange: #EDBA83;
+$yellow: #F2EBBF;
+$red: #F06060;
+
+.navbar-nav {
+  float: none;
+  margin: 0 auto;
+  display: block;
+  width: 165px;
+  text-align: center;
+}
+
+
+body {
+  a {
+    color: $red;
+    &:hover {
+      color: $purple;
+    }
+  }
+  ul {         
+          padding:0 0 0 0;
+          margin:0 0 0 0;
+      }
+      ul li {     
+          list-style:none;
+          margin-bottom:25px;           
+      }
+      ul li img {
+          cursor: pointer;
+      }
+  h5 {
+    font-family: $main-font;
+    font-size: 2.5em;
+  }
+  background-color: $orange;
+  .main-wrapper {
+    padding-top: 50px;
+  }
+  .logocontain {
+    h1 {
+      font-family: $main-font;
+      font-size: 1.7em;
+      text-align: center;
+      color: $purple;
+    }
+    .logo {
+      max-width: 300px;
+      margin: 0px auto;
+    }
+  }
+  .mainform {
+    label {
+      font-family: $main-font;
+      font-weight: 400;
+      color: $purple;
+      font-size: 1.4em;
+      display: block;
+    }
+    div {
+      padding: 5px 0;
+    }
+    input, textarea {
+      background-color: $yellow;
+      color: $purple;
+      font-family: $secondary-font;
+      margin: 0 auto;
+      max-width: 300px;
+      padding: 5px 5px;
+      width: 100%;
+      display: block;
+      border: 2px solid $purple;
+      border-radius: 3px;
+    }
+    textarea {
+      max-width: 500px;
+    }
+
+    button#login-btn {
+      display: block;
+      border: 3px solid $purple;
+      background-color: $orange;
+      margin: 0px auto;
+      text-align: center;
+      padding: 7px;
+      font-family: $main-font;
+      color: $purple;
+      font-weight: 400;
+      transition: all .7s;
+      -webkit-transtion: all .7s;
+      border-radius: 3px;
+      margin-top: 20px;
+      &:hover {
+        background-color: $yellow;
+      }
+    }
+  }
+  .recenttitle {
+    font-family: $main-font;
+    font-size: 1.8em;
+    text-align: center;
+    padding: 50px 0;
+    width: 100%;
+    margin: 0px auto;
+    display: inline-block;
+  }
+  .vintage {
+    -webkit-filter: sepia(100%); 
+    transition: all .7s;
+    -webkit-transtion: all .7s;
+    width: 250px;
+    &:hover {
+      -webkit-filter: sepia(0%);
+    }
+  }
+  .stats {
+    background-color: $purple;
+    color: $red;
+    padding: 50px 30px 75px 30px;
+    font-family: $secondary-font;
+    font-size: 2em;
+    border-radius: 3px;
+    h3 {
+      font-size: 4.5rem;
+      text-align: center;
+    }
+  }
+
+  .stats.col-md-12 {
+    text-align: center;
+    line-height: 50px;
+  }
+  blockquote {
+    border: none;
+  }
+
+  .like_view {
+    padding: 20px 0;
+    display: block;
+    position: relative;
+    top: 20px;
+    font-family: $main-font;
+    form {
+      margin-bottom: 15px;
+    }
+  }
+  .imagetitle {
+    h2 {
+      font-family: $main-font;
+      text-align: center;
+      font-size: 4rem;
+      border-top: 2px solid $purple;
+      max-width: 300px;
+      margin: 0px auto;
+      padding: 60px 0;
+      text-transform: capitalize;
+    }
+  }
+  .imagedesc {
+    font-family: $secondary-font;
+    text-align: center;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+  }
+}
+
+.postcomment {
+  text-align: center;
+  padding-top: 60px;
+  p {
+    font-size: 2em;
+    font-family: $main-font;
+  }
+}
+
+.img-thumbnail {
+  max-width: 250px;
+}
+
+.list-group-item {
+  position: relative;
+  display: block;
+  padding: 20px 15px;
+  font-family: $secondary-font;
+  margin-bottom: -1px;
+  border: none;
+  background-color: $yellow;
+  border-radius: 3px;
+}
+
+.form-group {
+  font-family: $main-font;
+}
+
+.list-group h5 {
+border-top: 2px solid $purple;
+border-bottom: 2px solid $purple;
+padding: 10px;
+}
+
+.formpadding {
+  padding-bottom: 50px;
+}
+
+.btn-success {
+  background-color: #F06060;
+  color: #5C4B51;
+  border-radius: 3px;
+  border: none;
+  font-family: 'Raleway', sans-serif; }
+  .btn-success:hover {
+    background-color: #F2EBBF !important;
+    color: #5C4B51; }
+
+.nav a.btn-success {
+  margin-left: 5px;
+  position: relative;
+  top: 10px;
+}
+
+.welcometext {
+  font-size: 3rem;
+  text-align: center;
+  padding: 20px;
+  font-family: 'Raleway';
+}
+

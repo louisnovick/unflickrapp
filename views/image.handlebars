@@ -1,86 +1,75 @@
-<div class="panel panel-default">
-          <div class="panel-heading">
-            <h3>
-                {{ image.title }}
-            </h3>
-          </div>
-          <div class="panel-body">
-            <blockquote>
-                {{ image.description }}
-            </blockquote>
-            <div class="text-center">
-              <img src="/public/upload/{{image.filename}}" class="img-thumbnail" alt="this is an {{image.title}}" />
-              <!-- <img src="http://placehold.it/750" class="img-thumbnail"> -->
-            </div>
-          </div>
-          <div class="panel-footer">
-            <form method="post" action="/images/{{ image.uniqueID }}/like" enctype="application/x-www-form-urlencoded">
-              <button type="submit" class="btn btn-success" id="btn-like" data-id="{{ image.uniqueId }}"><i class="glyphicon glyphicon-heart"></i> Like</button> &nbsp; &nbsp;
-              <strong><i class="glyphicon glyphicon-eye-open"></i> Views: {{ image.views }}</strong> &nbsp; &nbsp;
-              <strong><i class="glyphicon glyphicon-heart"></i> Likes: {{ image.likes }}</strong> &nbsp; &nbsp;
-              <strong> Posted: <em>{{ timeago image.timestamp }}</em></strong> &nbsp; &nbsp;
-            </form>
-          </div>
+<div>
+    <div class="imagetitle">
+        <h2>{{ image.title }}</h2>
+    </div>
+    <div>
+        <p class="imagedesc">{{ image.description }}</p>
+        <div class="col-md-12 text-center">
+            <img src="/public/upload/{{image.filename}}" class="vintage img-thumbnail">
         </div>
-      <!-- panel 1.2 comment section -->
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3>Comments Section</h3>
-        </div>
-        <!-- panel-body -->
-        <div class="panel-body">
-          {{#if userName }}
-          <div id="post-comment">
-            <h4>Post A Comment, {{ userName }}</h4>
-            <form method="post" action="/images/{{ image.uniqueID }}/comment" enctype="application/x-www-form-urlencoded">
-              <!--    !!!Not needed because sign in requires!!!
-              <div class="form-group">
-                <label for="name">
-                  Name:
-                </label>
-                <input type="text" name="name" class="form-control" />
-              </div>
-              
-              <div class="form-group">
-                <label for="email">
-                  Email:
-                </label>
-                <input type="text" name="email" class="form-control" />
-              </div>
-              -->
+    </div>
+    <div>
+        <div class="row like_view">
+            <div class="col-md-12 center-block text-center">
+                <form enctype="application/x-www-form-urlencoded" method="POST" action="/images/{{ image.uniqueID }}/like" >
+                    <button class="btn btn-success" id="btn-like" data-id="{{ image.uniqueId }}" type="submit"><i class="fa fa-heart"> Like</i></button>
+                </form>
 
-              <div class="form-group">
-                <label for="comment">
-                  Comment:
-                </label>
-                <textarea class="form-control" name="comment" rows="3" placeholder="write comment"></textarea>
-              </div>
-              
-              <div class="form-group">
-                <button type="submit" id="comment-btn" class="btn btn-success" data-id="{{ image.uniqueId }}"><i class="glyphicon glyphicon-comment"></i> Post</button>
-              </div>
-            </form>
-          </div>
-          {{else}}
-            <div class="alert alert-danger">Error: {{error}} must be signed in.</div>
-          {{/if}}
+                <strong class="likes-count">{{ image.likes }}</strong> &nbsp; - &nbsp; <i class="fa fa-eye"></i> <strong>{{ image.views }}</strong>
+                &nbsp; - &nbsp; Posted: <em class="text-muted">{{ timeago image.timestamp }}</em>
+            </div>
         </div>
-        <!-- panel footer -->
-        <div class="panel-footer comments-section">
-          <h3>Recent Comments</h3>
-          <ul class="media-list">
-            {{#each comments}}
-            <li class="media">
-              <div class="media-body">
-                <blockquote>
-                  {{ comment }}
-                </blockquote>
-                <strong class="media-heading">{{ name }}</strong>
-                <em class="text-muted">{{ timeago timestamp }}</em>
-              </div>
-            </li>
-            {{/each}}
-          </ul>
+    </div>
+</div>
+
+
+<div>
+    <div class="postcomment">
+        <div class="row">
+            <div class="col-md-12">
+                <p>Post a Comment</p>
+            </div>
         </div>
-        
-      </div>
+    </div>
+    <div>
+        <blockquote id="post-comment">
+            <div class="row">
+                <form method="POST" action="/images/{{ image.uniqueID }}/comment" enctype="application/x-www-form-urlencoded">
+                    {{#if userName }}
+                        <h4 style="text-align: center; padding-bottom: 20px;">Would you like to post a comment <strong>{{ userName }}</strong>?</h4>
+                    <div class="form-group col-sm-12">
+                        <label class="col-sm-2 control-label" for="comment">Comment:</label>
+                        <div class="col-sm-10">
+                            <textarea class="form-control" name="comment" rows="2"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <div class="col-sm-12 text-right">
+                            <button type="submit" id="comment-btn" class="btn btn-success" type="button" data-id="{{ image.uniqueId }}"><i class="fa fa-comment"></i> Post</button>
+                        </div>
+                    </div>
+                </form>
+                {{else}}
+                    <div class="alert alert-danger">Sorry, you must be signed in to comment.  <a href="/signin">Sign In?</a> {{error}} </div>
+                {{/if}}
+            </div>
+        </blockquote>
+        <div class="list-group">
+            <h5>Comments</h5>
+            <ul class="media-list">
+                {{#each comments}}
+                <li class="media list-group-item">
+                    <a class="pull-left" href="#">
+                        <img class="media-object img-circle" src="http://www.gravatar.com/avatar/{{gravatar}}?d=monsterid&s=45">
+                    </a>
+                    <div class="media-body">
+                        {{ comment }}
+                        <br/><strong class="media-heading" style="color: #F06060; font-size: 9pt; margin-top: 10px;">Posted by {{ name }} / {{ email }}</strong> <small class="text-muted">{{ timeago timestamp }}</small>
+                    </div>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+
+    </div>
+</div>

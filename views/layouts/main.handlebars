@@ -1,43 +1,47 @@
 <!DOCTYPE HTML>
 <html lang="en">
     <head>
-        <title>Not Quite Flickr</title>
-
+        <title>Vint || Image Vintifier and Gallery</title>
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
-
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
-        <meta name="viewport" content="width=device-width">
-
-        <link rel="stylesheet" type="text/css" href="/public/css/styles.css">
+        <link href='http://fonts.googleapis.com/css?family=Oxygen+Mono|Raleway:400,300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="../../public/css/style.min.css">
     </head>
     <body>
-        <div class="jumbotron">
-          <div class="container">
-            <h1><a href="/">Not Quite Flickr</a></h1>
-          </div>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-8">
-                    {{{body}}}
-                </div>
-                <div class="col-sm-4">
-                    {{> stats this }}
-
-                    {{> popular this }}
-
-                    {{> comments this }}
+        <div class="main-wrapper">
+            <div>
+                <div class="container">
+                    <div class="col-md-12 logocontain">
+                        <div class="logo"><a href="/"><img src="../../public/img/vintlogo.png" class="center-block img-responsive" /></a></div>
+                        <h1>Image Vintifier and Gallery</h1>
+                    </div>
                 </div>
             </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        {{{body}}}
+                    </div>
+                    <div class="col-sm-12">
+                        {{> stats this }}
+
+                        <!--{{> popular this }}
+
+                        {{> comments this }}-->
+                    </div>
+                </div>
+            </div>
+            <div style="padding-top: 1em;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 text-center">
+                            <p>Made by Louis Novick</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+            <script type="text/javascript" src="/public/js/scripts.js"></script>
         </div>
-        <!-- footer -->
-        <footer>
-          <div class="container">
-            <p class="text-center legal">by so and so</p>
-          </div>
-        </footer>
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-        <script type="text/javascript" src="/public/js/scripts.js"></script>
     </body>
 </html>

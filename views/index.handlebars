@@ -1,57 +1,57 @@
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3>
-            Upload an image
-          </h3>
-        </div>
-        <div class="panel-body">
-          {{#if userName}}
-            <div class="">
-              <p class="navbar-text">
-                <strong>Hi,</strong> {{userName}}, &nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="/signout">Log Out</a>
-              </p>
-            </div>
-          <form method="post" action="/images" enctype="multipart/form-data">
-            <div class="form-group">
-              <label for="file" class="control-label">
-                Browse
-              </label>
-              <input type="file" name="file" class="form-control" />
-            </div>
-            <div class="form-group">
-              <label for="title" class="control-label">
-                Title
-              </label>
-              <input type="text" name="title" class="form-control" placeholder="title" />
-            </div>
-            <div class="form-group">
-              <label for="description" class="control-label">
-                Description
-              </label>
-              <textarea name="description" rows="9" class="form-control" placeholder="how awesome is this picture?"></textarea>
-            </div>
-            <div class="form-group">
-              <button type="submit" id="login-btn" class="btn btn-success"><i class="glyphicon glyphicon-import"></i> Upload Image</button>
-            </div>
-          </form>
+<div>
+      {{#if userName}}
+            <h4 class="welcometext">
+              Welcome, <strong> {{userName}} </strong>
+            </h4>
+            <ul class="nav navbar-nav">
+              <li style="float: none;">
+                <a href="/signout" class="btn-success">Log Out</a>
+              </li>
           {{else}}
-            <a href="/signup">Sign Up</a>
-            <a href="/signin">Sign In</a>
+            <ul class="nav navbar-nav">
+              <li><a href="/signup" class="btn-success">Sign Up</a></li>
+              <li><a href="/signin" class="btn-success">Sign In</a></li>
           {{/if}}
+            </ul>
+  <form method="post" action="/images" enctype="multipart/form-data">
+    <div class="mainform">
+      <div class="col-md-12">
+        <div class="col-md-12">
+            <div><input id="upfile" type="file" name="file" value="Choose Image" required="true" /></div>
         </div>
       </div>
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3>Newest Images</h3>
-        </div>
-        <div class="panel-body">
-          {{#each images}}
-            <div class="col-sm-6 center-block new-img">
-              <a href="/images/{{ uniqueID }}">
-                <img src="/public/upload/{{filename}}" alt="{{title}}" class="img-thumbnail" />
-              </a>
-            </div>
-          {{/each}}
+      <div class="col-md-12">
+        <label class="text-center col-md-12" for="title">
+          Give it a name
+        </label>
+        <div class="col-md-12">
+          <input type="text" name="title" required="true">
         </div>
       </div>
+      <div class=" col-md-12">
+        <label class="text-center col-md-12" for="description">
+          Describe it
+        </label>
+        <div class="col-md-12">
+          <textarea name="description" rows="3" maxlength="100"></textarea>
+        </div>
+        <div class="col-md-12">
+          <div class="col-md-12">
+            <button type="submit" id="login-btn" class-"btn btn-success" type="button"><i class="fa fa-cloud-upload "></i>Upload Image and Vintify</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div>
+    <div>
+      <h3 class="recenttitle">
+        Recent Images
+      </h3>
+    </div>
+    <div>
+      {{#each images}}
+        <div class="text-center col-md-4" style="padding-bottom:1em;"><a href="/images/{{ uniqueID }}"><img src="/public/upload/{{filename}}" alt="{{title}}" class="vintage img-thumbnail"></a></div>
+        {{/each}}
+      </div>
+    </div>
